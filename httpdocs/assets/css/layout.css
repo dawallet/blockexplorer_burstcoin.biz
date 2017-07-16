@@ -1,0 +1,47 @@
+body.boxed {height: auto}
+.sidebar-mailbox.sidebar .sidebar-inner .nav-sidebar > li.active > a span.badge,.sidebar .sidebar-inner .nav-sidebar .badge-rounded{position:absolute;right:55px}
+.sidebar-mailbox.sidebar .sidebar-inner .nav-sidebar > li.active > a{text-align:center}
+.sidebar-collapsed:not(.boxed) .topbar .header-left .topnav{float:left;height:50px;margin:0}
+.sidebar-mailbox.sidebar .sidebar-charts{margin-bottom:10px}
+.boxed.fixed-topbar section .main-content .topbar { position: fixed}
+.boxed.fixed-topbar.sidebar-show > section{ overflow: hidden;}
+.boxed.fixed-topbar .main-content .page-content { margin-top: 50px;}
+.boxed .main-content { height: 100%;}
+.boxed.sidebar-condensed .main-content { height: 100%;}
+.sidebar-mailbox.sidebar .sidebar-inner .nav-sidebar > li > a span:not(.badge) { display: block;}
+.btn-chart { padding: 7px 15px 8px 15px; }
+@media (min-width: 1600px) {
+  .dashboard.boxed .col-clock, .dashboard.boxed .col-financial-stocks {display: none !important;}
+  .dashboard.boxed .col-visitors {width: 41.6666666%;}
+  .dashboard.boxed .col-small-stats {width: 50%;}
+  .dashboard.boxed .widget-stock .company-info {display: none}
+}
+@media (min-width: 1024px) and (max-width:1200px) {
+  .boxed.fixed-topbar:not(.sidebar-collapsed) section .main-content .topbar {right: 0 !important; left: 240px !important; width: auto;}
+  .boxed.sidebar-collapsed .sidebar { top: 0;}
+}
+@media (max-width: 1024px) {
+  body.boxed {height: 100%}
+}
+/* 2 Horizontal Menu Layout */
+.sidebar-collapsed .sidebar {  z-index: 3000;}
+.with-submenu.page-content .topbar{ border-top: 1px solid #DBDBDB;}
+.with-submenu.page-content .topbar.topbar-blue {border-top: none;}
+.sidebar-collapsed .with-submenu.page-content .topbar { margin-left: 0;}
+.with-submenu .topbar{position: absolute;top: 0;left: 0;right: 0;}
+.fixed-topbar .with-submenu.page-content .topbar {top: 50px; z-index: 1}
+.with-submenu.page-content { padding-top: 80px;}
+.fixed-topbar .with-submenu.page-content { margin-top: 0; padding: 20px 50px 0;  padding-top: 130px;}
+.sidebar-collapsed.fixed-topbar .with-submenu.page-content .topbar { left: 0;}
+.with-submenu.page-content .topbar li {line-height: normal;}
+.with-submenu.page-content .topbar.top-icons, .with-submenu.page-content .topbar.top-icons .topnav > ul {height: auto;}
+.with-submenu.page-content .topbar.top-icons .header-left .topnav > ul > li > a i {display: block;text-align: center;margin-bottom: 5px;  font-size: 16px;color:#B8DBE8;}
+.with-submenu .topbar .header-left .topnav > ul > li > a::before {height: 0;}
+.with-submenu .topbar .header-left .topnav > ul > li > a { height: 64px;}
+.with-submenu.page-content .topbar.top-icons .topnav {height: auto;}
+.with-submenu.page-content .topbar-blue {background: #319db5 !important}
+.with-submenu.page-content .topbar.topbar-blue .header-left .topnav > ul:not(.nav-icons) > li.active > a,  .with-submenu.page-content .topbar.topbar-blue .header-left .topnav > ul > li:hover > a{color: #fff;  background: rgba(0,0,0,0.1) !important;}
+.with-submenu.page-content .topbar.topbar-blue .header-left .topnav > ul > li > a { color: #fff;}
+@media (max-width: 1024px) {
+  .sidebar-show.fixed-topbar .with-submenu .topbar {  left: 0 !important;overflow: visible !important}
+}
