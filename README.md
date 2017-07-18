@@ -3,13 +3,23 @@
     Burstcoin Block-Explorer Code - Burstcoin.biz
     Copyright (c) 2017 by BURSTize (haitch, daWallet)
     
-    License: GNU GPLv3
+    License: GNU AGPLv3
 
-    Permissions of this strong copyleft license are conditioned on making 
-    available complete source code of licensed works and modifications,
-    which include larger works using a licensed work, under the same license. 
-    Copyright and license notices must be preserved. Contributors provide an 
-    express grant of patent rights.
+    Block-Explorer for the Burstcoin Project
+    Copyright (C) 2017 by BURSTize (haitch, daWallet) 
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 INSTRUCTIONS:
@@ -50,21 +60,3 @@ INSTRUCTIONS:
  * * * * * sleep 55; php /var/www/pfad/zur/burstcoinseite/app/tasks/index.php -- action=cycle
 
 Done.
-
-
-
-
-    License: GNU GPLv3
-    
-    You can redistribute it and/or modify it under the terms 
-    of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License,
-    or any later version.
-    
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
