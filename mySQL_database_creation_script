@@ -1,0 +1,206 @@
+-- phpMyAdmin SQL Dump
+-- version 4.6.5.2
+-- https://www.phpmyadmin.net/
+
+-- Host: 127.0.0.1
+-- Generation Time: Jul 18, 2017 at 02:54 PM
+-- Server version: 5.7.18
+-- PHP Version: 5.6.30
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+--
+-- Database: burstcoin
+
+CREATE DATABASE IF NOT EXISTS burstcoin DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE burstcoin;
+--
+-- Table structure for table b_chain_accounts
+
+DROP TABLE IF EXISTS b_chain_accounts;
+CREATE TABLE b_chain_accounts (
+ID int(11) NOT NULL,
+account varchar(32) NOT NULL,
+accountRS varchar(32) NOT NULL,
+name varchar(255) NOT NULL,
+unconfirmedBalanceNQT double NOT NULL,
+guaranteedBalanceNQT double NOT NULL,
+effectiveBalanceNXT double NOT NULL,
+forgedBalanceNQT double NOT NULL,
+forgedBlocks int(11) NOT NULL,
+publicKey varchar(64) NOT NULL,
+accountFirstseen datetime NOT NULL,
+lastActivity datetime NOT NULL,
+VALUES varchar(255) DEFAULT NULL,
+accountid int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+--
+-- Table structure for table b_chain_blocks
+
+DROP TABLE IF EXISTS b_chain_blocks;
+CREATE TABLE b_chain_blocks (
+ID int(11) NOT NULL,
+height int(11) NOT NULL,
+generator varchar(20) NOT NULL,
+blockReward varchar(255) NOT NULL,
+timestamp int(32) NOT NULL,
+blockdate datetime NOT NULL,
+duration int(32) NOT NULL,
+block varchar(32) NOT NULL,
+nonce varchar(32) NOT NULL,
+version int(11) NOT NULL,
+baseTarget varchar(64) NOT NULL,
+numberOfTransactions int(11) NOT NULL,
+totalAmountNQT varchar(20) NOT NULL,
+totalFeeNQT varchar(20) NOT NULL,
+scoopNum int(11) NOT NULL,
+blockSignature varchar(128) NOT NULL,
+payloadLength int(11) NOT NULL,
+payloadHash varchar(64) NOT NULL,
+generationSignature varchar(64) NOT NULL,
+Values varchar(255) DEFAULT NULL,
+blockid int(32) NOT NULL DEFAULT '0',
+resynced int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+--
+-- Table structure for table b_chain_transactions
+
+DROP TABLE IF EXISTS b_chain_transactions;
+CREATE TABLE b_chain_transactions (
+ID int(11) NOT NULL,
+type int(11) NOT NULL,
+subtype int(11) NOT NULL,
+sender varchar(20) NOT NULL,
+recipient varchar(20) NOT NULL,
+block varchar(64) NOT NULL,
+amountNQT varchar(16) NOT NULL,
+feeNQT varchar(16) NOT NULL,
+timestamp int(11) NOT NULL,
+transactiondate datetime NOT NULL,
+signature varchar(128) NOT NULL,
+fullHash varchar(64) NOT NULL,
+attachment text NOT NULL,
+transaction text NOT NULL,
+signatureHash text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+--
+-- Table structure for table b_downloads
+
+DROP TABLE IF EXISTS b_downloads;
+CREATE TABLE b_downloads (
+downloadid int(11) NOT NULL,
+category text NOT NULL,
+name text NOT NULL,
+version text NOT NULL,
+platform text NOT NULL,
+filesize int(11) NOT NULL,
+downloads int(11) NOT NULL,
+filename text NOT NULL,
+source text NOT NULL,
+support text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+--
+-- Table structure for table b_downloads_history
+
+DROP TABLE IF EXISTS b_downloads_history;
+CREATE TABLE b_downloads_history (
+downloadid int(11) NOT NULL,
+historyid int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+--
+-- Table structure for table b_stats
+
+DROP TABLE IF EXISTS b_stats;
+CREATE TABLE b_stats (
+ID int(11) NOT NULL,
+burstBTC float NOT NULL,
+btcUSD float NOT NULL,
+btcEUR float NOT NULL,
+btcUSDts int(11) NOT NULL,
+btcEURts int(11) NOT NULL,
+walletstatus int(11) NOT NULL,
+blocks int(11) NOT NULL,
+DEBUGcurrentBlock int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+--
+-- Table structure for table b_tasks_cycle
+
+DROP TABLE IF EXISTS b_tasks_cycle;
+CREATE TABLE b_tasks_cycle (
+ID int(11) NOT NULL,
+ts_nextcycle int(32) NOT NULL,
+ts_lastcycle int(32) NOT NULL,
+cycleid int(11) NOT NULL,
+taskonce int(11) NOT NULL,
+taskid int(11) NOT NULL,
+cycleinterval int(32) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+--
+-- Table structure for table b_tasks_list
+
+DROP TABLE IF EXISTS b_tasks_list;
+CREATE TABLE b_tasks_list (
+tasklistid int(11) NOT NULL,
+statusid int(11) NOT NULL DEFAULT '0',
+taskid int(11) NOT NULL,
+ts_update int(11) NOT NULL DEFAULT '0',
+ts_end int(11) NOT NULL DEFAULT '0',
+duration int(11) NOT NULL DEFAULT '0',
+stats_now int(11) NOT NULL DEFAULT '0',
+referenceid int(11) NOT NULL DEFAULT '0',
+ts_start int(11) NOT NULL DEFAULT '0',
+stats_max int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+--
+-- Indexes for dumped tables
+--
+-- Indexes for table b_chain_accounts
+
+ALTER TABLE b_chain_accounts
+ADD PRIMARY KEY (ID),
+ADD KEY account (account),
+ADD KEY accountRS (accountRS),
+ADD KEY ID (ID);
+--
+-- Indexes for table b_chain_blocks
+
+ALTER TABLE b_chain_blocks
+ADD PRIMARY KEY (ID),
+ADD KEY height (height),
+ADD KEY ID (ID);
+--
+-- Indexes for table b_chain_transactions
+
+ALTER TABLE b_chain_transactions
+ADD PRIMARY KEY (ID),
+ADD KEY ID (ID),
+ADD KEY block (block),
+ADD KEY timestamp (timestamp);
+--
+-- Indexes for table b_downloads
+
+ALTER TABLE b_downloads
+ADD PRIMARY KEY (downloadid);
+--
+-- Indexes for table b_downloads_history
+
+ALTER TABLE b_downloads_history
+ADD PRIMARY KEY (downloadid);
+--
+-- Indexes for table b_stats
+
+ALTER TABLE b_stats
+ADD PRIMARY KEY (ID);
+--
+-- Indexes for table b_tasks_cycle
+
+ALTER TABLE b_tasks_cycle
+ADD PRIMARY KEY (ID);
+--
+-- Indexes for table b_tasks_list
+
+ALTER TABLE b_tasks_list
+ADD PRIMARY KEY (tasklistid),
+ADD KEY tasklistid (tasklistid);
+
+--by focus
