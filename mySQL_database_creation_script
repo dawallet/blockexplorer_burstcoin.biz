@@ -204,3 +204,38 @@ ADD PRIMARY KEY (tasklistid),
 ADD KEY tasklistid (tasklistid);
 
 --by focus
+
+
+
+
+ALTER TABLE `b_tasks_list` CHANGE `tasklistid` `tasklistid` INT(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `b_chain_blocks` CHANGE `ID` `ID` INT(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `b_chain_accounts` CHANGE `ID` `ID` INT(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `b_chain_transactions` CHANGE `ID` `ID` INT(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `b_downloads` CHANGE `downloadid` `downloadid` INT(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `b_downloads_history` CHANGE `downloadid` `downloadid` INT(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `b_stats` CHANGE `ID` `ID` INT(11) NOT NULL AUTO_INCREMENT;
+INSERT INTO `b_stats` (`ID`, `burstBTC`, `btcUSD`, `btcEUR`, `btcUSDts`, `btcEURts`, `walletstatus`, `blocks`, `DEBUGcurrentBlock`) VALUES (NULL, '0', '0', '0', '0', '0', '', '', '');
+
+CREATE TABLE `b_faucet` (
+  `id` int(11) NOT NULL,
+  `recipient` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
+  `remote_addr` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
+  `amount` tinyint(3) UNSIGNED NOT NULL DEFAULT '0',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+ALTER TABLE `b_faucet`   ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `b_faucet`   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `b_faucet` CHANGE `id` `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+ALTER TABLE `b_faucet` CHANGE `created_at` `created_at` INT UNSIGNED NOT NULL;
+ALTER TABLE `b_faucet` CHANGE `created_at` `ts_faucet` INT(10) UNSIGNED NOT NULL;
+ALTER TABLE `b_faucet` CHANGE `id` `faucetid` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+ALTER TABLE `b_faucet` ADD `transaction` BIGINT UNSIGNED NULL AFTER `ts_faucet`;
+ALTER TABLE `b_chain_transactions` CHANGE `ID` `ID` BIGINT(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+ALTER TABLE `b_chain_accounts` CHANGE `account` `account` BIGINT(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+ALTER TABLE `b_downloads_history` DEFAULT CHARSET=utf8 COLLATE utf8_general_ci;
+ALTER TABLE `b_downloads` DEFAULT CHARSET=utf8 COLLATE utf8_general_ci;
+ALTER TABLE `b_downloads` CHANGE `category` `category` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL, CHANGE `name` `name` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL, CHANGE `version` `version` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL, CHANGE `platform` `platform` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL, CHANGE `filename` `filename` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL, CHANGE `source` `source` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL, CHANGE `support` `support` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
